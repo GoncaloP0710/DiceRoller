@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.Spacer
@@ -53,7 +54,7 @@ fun DiceRollerApp() {
 }
 
 @Composable
-fun DiceWithButtonAndImage(navController: NavController, result: Int, modifier: Modifier = Modifier) {
+fun DiceWithButtonAndImage(navController: NavController, result: Int, modifier: Modifier = Modifier.fillMaxSize().wrapContentSize(Alignment.Center)) {
 
     var oldValue by remember { mutableStateOf(result) }
     var newValue by remember { mutableStateOf(1) }
@@ -69,7 +70,8 @@ fun DiceWithButtonAndImage(navController: NavController, result: Int, modifier: 
     }
     Column (
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
         Image(
             painter = painterResource(imageResource),
